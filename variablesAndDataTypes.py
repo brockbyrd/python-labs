@@ -1,3 +1,6 @@
+#imports math module
+from math import *
+
 #variables and data types
 character_name = "Brock"
 character_age = "22"
@@ -30,3 +33,33 @@ print(phrase.index("o"))
 print(phrase.replace("School", "Academy"))
 
 #working with numbers
+print(-10.1102)
+print(-3 + 4.5)
+
+#specifies order of opperations
+print(3 * (4 + 5))
+
+#modulas or remainder
+print(10 % 3)
+
+my_num = -5
+print(my_num)
+print(str(my_num) + " is my favorite number.")
+
+#absolute value function
+print(abs(my_num))
+
+#power function
+print(pow(3, 2))
+
+#returns max and min value
+print(max(4, 6))
+print(min(4, 6))
+
+#rounds number to closest
+print(round(3.7))
+
+#imported methods
+print(floor(3.7))
+print(ceil(3.7))
+print(sqrt(36))
