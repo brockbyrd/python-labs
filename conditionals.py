@@ -37,3 +37,10 @@ def animal(pet):
         print("I'm not sure what sound that animal makes.")
 
 animal("lion")
+
+
+i = 1
+while i <= 10:
+    print(i)
+    i += 1
+print("Done with while loop")
