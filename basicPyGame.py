@@ -18,3 +18,8 @@ while running:
 
     #draw a solid blue circle in the center
     pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
+
+    #flip the display
+    pygame.display.flip()
+
+pygame.quit()
