@@ -11,7 +11,8 @@ while running:
 
     #Did the user click the window close button?
     for event in pygame.event.get():
-        running = False
+        if event.type == pygame.QUIT:
+            running = False
 
     #Fill the background with white
     screen.fill((255, 255, 255))
