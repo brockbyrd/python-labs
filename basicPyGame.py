@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 #set up drawing window
-screen = pygame.display.set_mode([500, 500])
+screen = pygame.display.set_mode([640, 480])
 
 #run until user asks to quit
 running = True
@@ -24,3 +24,4 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
+quit()
