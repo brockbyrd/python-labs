@@ -132,4 +132,4 @@ while running:
 
     pygame.display.flip()
 
-    clock.tick(70)
+    clock.tick(60)
