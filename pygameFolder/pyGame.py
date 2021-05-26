@@ -25,8 +25,10 @@ class Player(pygame.sprite.Sprite):
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
             self.rect.move_ip(0,-5)
+            move_up_sound.play()
         if pressed_keys[K_DOWN]:
             self.rect.move_ip(0, 5)
+            move_down_sound.play()
         if pressed_keys[K_LEFT]:
             self.rect.move_ip(-5, 0)
         if pressed_keys[K_RIGHT]:
@@ -136,8 +138,16 @@ while running:
 
     if pygame.sprite.spritecollideany(player, enemies):
         player.kill()
+
+        move_up_sound.stop()
+        move_down_sound.stop()
+        collision_sound.play()
+
         running = False
 
     pygame.display.flip()
 
     clock.tick(60)
+
+    pygame.mixer.music.stop()
+    pygame.mixer.quit()
