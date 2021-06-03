@@ -1,4 +1,7 @@
 import pygame
+import time
+import random
+
 pygame.init()
 
 white=(255,255,255)
@@ -30,6 +33,9 @@ def gameLoop():
 
     x1_change = 0
     y1_change = 0
+
+    foodx = round(random.randrange(0, display_width - snake_block) / 10.0) * 10.0
+    foody = round(random.randrange(0, display_width - snake_block) / 10.0) * 10.0
     while not game_over:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
