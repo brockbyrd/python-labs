@@ -7,6 +7,7 @@ pygame.init()
 white=(255,255,255)
 black=(0,0,0)
 red=(255,0,0)
+blue=(0,0,255)
 
 display_width = 800
 display_height = 600
@@ -74,10 +75,12 @@ def gameLoop():
         x1 += x1_change
         y1 += y1_change
         display.fill(white)
+        pygame.draw.rect(display, blue, [foodx, foody, snake_block, snake_block])
         pygame.draw.rect(display, black, [x1, y1, snake_block, snake_block])
-
-        message("You Lost", red)
         pygame.display.update()
+
+        if x1 == foodx and y1 == foody:
+            print("Yummy")
         clock.tick(snake_speed)
 
 
