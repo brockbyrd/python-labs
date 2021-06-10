@@ -5,24 +5,32 @@ import random
 pygame.init()
 
 white=(255,255,255)
+yellow=(255,255,102)
 black=(0,0,0)
-red=(255,0,0)
-blue=(0,0,255)
+red=(213,50,80)
+green=(0,255,0)
+blue=(50,153,213)
 
 display_width = 800
 display_height = 600
+
 display = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption("Snake game")
 
 clock = pygame.time.Clock()
 snake_block=10
-snake_speed=30
+snake_speed=15
 
 font_style = pygame.font.SysFont(None, 30)
+score_font = pygame.font.SysFont("comicsansms", 35)
+
+def our_snake(snake_block, snake_list):
+    for x in snake_list:
+        pygame.draw.rect(display, black, [x[0], x[1], snake_block, snake_block])
 
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
-    display.blit(mesg, [display_width/3, display_height/3])
+    display.blit(mesg, [display_width/6, display_height/3])
 
 
 def gameLoop():
@@ -34,6 +42,9 @@ def gameLoop():
 
     x1_change = 0
     y1_change = 0
+
+    snake_List = []
+    Length_of_snake = 1
 
     foodx = round(random.randrange(0, display_width - snake_block) / 10.0) * 10.0
     foody = round(random.randrange(0, display_width - snake_block) / 10.0) * 10.0
@@ -76,11 +87,26 @@ def gameLoop():
         y1 += y1_change
         display.fill(white)
         pygame.draw.rect(display, blue, [foodx, foody, snake_block, snake_block])
-        pygame.draw.rect(display, black, [x1, y1, snake_block, snake_block])
+        snake_Head = []
+        snake_Head.append(x1)
+        snake_Head.append(y1)
+        snake_List.append(snake_Head)
+        if len(snake_List) > Length_of_snake:
+            del snake_List[0]
+        
+        for x in snake_List[:-1]:
+            if x == snake_Head:
+                game_close = True
+        
+        our_snake(snake_block, snake_List)
+
         pygame.display.update()
 
         if x1 == foodx and y1 == foody:
-            print("Yummy")
+            foodx = round(random.randrange(0, display_width - snake_block) / 10)
+            foody = round(random.randrange(0, display_width - snake_block) / 10)
+            Length_of_snake += 1
+            
         clock.tick(snake_speed)
 
 
